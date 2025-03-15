@@ -7,12 +7,16 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3vyb7"]
 
 [node name="player" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0220155, -0.0284574, 0.00245047)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
+contact_monitor = true
+max_contacts_reported = 10
 linear_damp = 1.0
 angular_damp = 3.0
 script = ExtResource("1_3vyb7")
+torque_thrust = 200.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -21,3 +25,5 @@ mesh = SubResource("CylinderMesh_dqkch")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_3vyb7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
