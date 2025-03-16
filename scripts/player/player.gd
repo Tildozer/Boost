@@ -6,6 +6,9 @@ extends RigidBody3D
 ## How much torque applied to player when rotating
 @export_range(50.0, 500.0) var torque_thrust: float = 100.0
 
+var is_transitioning: bool = false
+
+
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("boost"):
 		apply_central_force(basis.y * delta * thrust)
@@ -18,15 +21,24 @@ func _process(delta: float) -> void:
 	
 
 func _on_body_entered(body: Node) -> void:
-	if "goal" in body.get_groups():
-		call_deferred("complete_level", body.file_path)
-	if "obstacle" in body.get_groups():
-		crash_sequence()
+	if !is_transitioning:
+		if "goal" in body.get_groups():
+			call_deferred("complete_level", body.file_path)
+		if "obstacle" in body.get_groups():
+			call_deferred("crash_sequence")
 
 func crash_sequence() -> void:
-	print("kaboom")
-	get_tree().call_deferred("reload_current_scene")
+	is_transitioning = true
+	set_process(false)
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().reload_current_scene)
 
 func complete_level(next_level_file: String) -> void:
-	print("you win")
-	get_tree().change_scene_to_file(next_level_file)
+	is_transitioning = true
+	set_process(false)
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(
+		get_tree().change_scene_to_file.bind(next_level_file)
+	)
