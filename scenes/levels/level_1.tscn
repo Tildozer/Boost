@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5elxy06evgjy"]
+[gd_scene load_steps=10 format=3 uid="uid://c5elxy06evgjy"]
 
 [ext_resource type="Script" uid="uid://cxtbitoqm04ks" path="res://scripts/landing_pad.gd" id="1_6iamk"]
+[ext_resource type="PackedScene" uid="uid://bi78dcd3salkd" path="res://scenes/enviroment/background.tscn" id="1_x42e6"]
 [ext_resource type="PackedScene" uid="uid://bd0phqxxkb8h1" path="res://scenes/player/player.tscn" id="2_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://7vd1hhwdycn" path="res://scenes/enviroment/floor.tscn" id="2_x42e6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rd3vj"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -16,9 +18,6 @@ sky = SubResource("Sky_2q6dc")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rd3vj"]
-albedo_color = Color(0.30506, 0.230321, 0.123477, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q6dc"]
 albedo_color = Color(8.66354e-06, 0.860988, 0.860988, 1)
 
@@ -31,14 +30,14 @@ albedo_color = Color(4.28364e-06, 0.832985, 0.390684, 1)
 environment = SubResource("Environment_w7c3h")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.836514, -0.547671, 0.0173379, -0.224143, 0.370888, 0.901222, -0.500003, 0.749999, -0.43301, 0, 10, 0)
+transform = Transform3D(-0.836815, -0.547192, 0.0179, 0.201034, -0.2767, 0.939693, -0.509239, 0.789947, 0.341552, 0, 11.2988, 6.52997)
 shadow_enabled = true
 
-[node name="Floor" type="CSGBox3D" parent="." groups=["obstacle"]]
+[node name="Floor" parent="." instance=ExtResource("2_x42e6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(30, 8, 5)
-material = SubResource("StandardMaterial3D_rd3vj")
+
+[node name="background" parent="." instance=ExtResource("1_x42e6")]
+transform = Transform3D(0.78314, -0.621845, 0, 0.621845, 0.78314, 0, 0, 0, 1, -9.64961, -0.30224, -3.0845)
 
 [node name="launchPad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.2, 0)
@@ -55,7 +54,7 @@ script = ExtResource("1_6iamk")
 file_path = "uid://ds2fyaiqr1ee0"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 3.965, 7.52)
+transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 4, 10)
 fov = 71.3834
 
 [node name="player" parent="." instance=ExtResource("2_nsrm0")]

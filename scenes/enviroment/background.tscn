@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi78dcd3salkd"]
+
+[ext_resource type="Material" uid="uid://bnsqu0mpgb60w" path="res://assets/materials/backgroundBrown.tres" id="1_y0upk"]
+[ext_resource type="Material" uid="uid://6n8vl7hu8wm0" path="res://assets/materials/stoneGrey.tres" id="2_jougr"]
+
+[node name="background" type="Node3D"]
+transform = Transform3D(0.78314, -0.621845, 0, 0.621845, 0.78314, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="dirtBackground" type="CSGBox3D" parent="."]
+material_override = ExtResource("1_y0upk")
+size = Vector3(5, 5, 1)
+material = ExtResource("1_y0upk")
+
+[node name="background2" type="CSGBox3D" parent="dirtBackground"]
+transform = Transform3D(-0.303351, -0.952879, 0, 0.952879, -0.303351, 0, 0, 0, 1, 13.0163, -11.5195, 0)
+size = Vector3(5.0625, 5, 1)
+
+[node name="background3" type="CSGBox3D" parent="dirtBackground"]
+transform = Transform3D(-0.980508, -0.196477, 0, 0.196477, -0.980508, 0, 0, 0, 1, 17.9853, -2.65703, 0)
+size = Vector3(8.52417, 5, 1)
+
+[node name="background4" type="CSGBox3D" parent="dirtBackground"]
+transform = Transform3D(-0.165685, -0.986179, 0, 0.986179, -0.165685, 0, 0, 0, 1, 5.68572, 7.10933, 0)
+size = Vector3(8.52417, 5, 1)
+
+[node name="spike" type="CSGCylinder3D" parent="dirtBackground"]
+transform = Transform3D(0.5306, 0.788537, -0.310923, -0.827489, 0.402413, -0.39157, -0.183648, 0.465052, 0.866025, 2.50443, -0.299131, 0.186543)
+height = 1.19775
+cone = true
+material = ExtResource("2_jougr")
+
+[node name="spike2" type="CSGCylinder3D" parent="dirtBackground"]
+transform = Transform3D(0.501918, 0.861169, -0.0804138, -0.86361, 0.493884, -0.101272, -0.0474969, 0.120276, 0.991604, 2.31813, 0.175888, -0.143219)
+height = 1.19775
+cone = true
+
+[node name="spike3" type="CSGCylinder3D" parent="dirtBackground"]
+transform = Transform3D(0.500005, 0.866012, 0.00426529, -0.866019, 0.499983, 0.0053716, 0.00251932, -0.00637966, 0.999977, 2.65745, -0.880316, -0.0139885)
+height = 1.19775
+cone = true
+
+[node name="spike4" type="CSGCylinder3D" parent="dirtBackground"]
+transform = Transform3D(-0.199233, 0.74566, -0.635843, -0.83134, 0.214918, 0.512527, 0.518826, 0.630714, 0.577078, 2.2977, 1.31218, -0.0139885)
+height = 1.19775
+cone = true
+
+[node name="spike5" type="CSGCylinder3D" parent="dirtBackground"]
+transform = Transform3D(0.518668, 0.818174, 0.248143, -0.847226, 0.452853, 0.277727, 0.114856, -0.354281, 0.928059, 2.40217, 0.788711, -0.100992)
+height = 0.69458
+cone = true
+
+[node name="spike6" type="CSGCylinder3D" parent="dirtBackground"]
+transform = Transform3D(-0.766825, 0.56891, -0.297189, -0.199979, 0.228206, 0.952854, 0.609908, 0.790103, -0.0612234, 2.24701, -0.0163937, 0.660334)
+material_override = ExtResource("2_jougr")
+material_overlay = ExtResource("2_jougr")
+height = 1.19775
+cone = true
+
+[node name="topSpikes" type="CSGBox3D" parent="dirtBackground"]
+transform = Transform3D(-0.31434, 0.94931, 0, -0.94931, -0.31434, 0, 0, 0, 1, 11.4577, 2.65179, 0)
+material_override = ExtResource("1_y0upk")
+size = Vector3(5, 7.45459, 1)
+material = ExtResource("1_y0upk")
+
+[node name="spike" type="CSGCylinder3D" parent="dirtBackground/topSpikes"]
+transform = Transform3D(0.5306, 0.788537, -0.310923, -0.827489, 0.402413, -0.39157, -0.183648, 0.465052, 0.866025, 2.50443, -0.299131, 0.186543)
+height = 1.19775
+cone = true
+material = ExtResource("2_jougr")
+
+[node name="spike2" type="CSGCylinder3D" parent="dirtBackground/topSpikes"]
+transform = Transform3D(0.501918, 0.861169, -0.0804138, -0.86361, 0.493884, -0.101272, -0.0474969, 0.120276, 0.991604, 2.31813, 0.175888, -0.143219)
+height = 1.19775
+cone = true
+
+[node name="spike3" type="CSGCylinder3D" parent="dirtBackground/topSpikes"]
+transform = Transform3D(0.500005, 0.866012, 0.00426529, -0.866019, 0.499983, 0.0053716, 0.00251932, -0.00637966, 0.999977, 2.65745, -0.880316, -0.0139885)
+height = 1.19775
+cone = true
+
+[node name="spike4" type="CSGCylinder3D" parent="dirtBackground/topSpikes"]
+transform = Transform3D(-0.199233, 0.74566, -0.635843, -0.83134, 0.214918, 0.512527, 0.518826, 0.630714, 0.577078, 2.2977, 1.31218, -0.0139885)
+height = 1.19775
+cone = true
+
+[node name="spike5" type="CSGCylinder3D" parent="dirtBackground/topSpikes"]
+transform = Transform3D(0.518668, 0.818174, 0.248143, -0.847226, 0.452853, 0.277727, 0.114856, -0.354281, 0.928059, 2.40217, 0.788711, -0.100992)
+height = 0.69458
+cone = true
+
+[node name="spike6" type="CSGCylinder3D" parent="dirtBackground/topSpikes"]
+transform = Transform3D(-0.766825, 0.56891, -0.297189, -0.199979, 0.228206, 0.952854, 0.609908, 0.790103, -0.0612234, 2.24701, -0.0163937, 0.660334)
+material_override = ExtResource("2_jougr")
+material_overlay = ExtResource("2_jougr")
+height = 1.19775
+cone = true
+
+[node name="stoneBackground" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0720197, 0.997403, 0, -0.997403, 0.0720197, 0, 0, 0, 1, 7.6473, -5.88684, 0.0347283)
+material_override = ExtResource("2_jougr")
+size = Vector3(3, 2, 1)
+
+[node name="stoneBackground2" type="CSGBox3D" parent="stoneBackground"]
+transform = Transform3D(0.868095, 0.496398, 0, -0.496398, 0.868095, 0, 0, 0, 1, 3.42003, 1.82366, 0)
+size = Vector3(3, 3.52649, 1)
+
+[node name="stoneBackground6" type="CSGBox3D" parent="stoneBackground"]
+transform = Transform3D(0.0333824, 0.999443, 0, -0.999443, 0.0333824, 0, 0, 0, 1, 3.88267, 2.00183, 0)
+size = Vector3(3, 3.52649, 1)
+
+[node name="stoneBackground3" type="CSGBox3D" parent="stoneBackground"]
+transform = Transform3D(0.448742, 0.893661, 0, -0.893661, 0.448742, 0, 0, 0, 1, 1.10835, 0.807178, 0)
+size = Vector3(3, 2.79926, 1)
+
+[node name="stoneBackground4" type="CSGBox3D" parent="stoneBackground"]
+transform = Transform3D(0.955108, 0.296258, 0, -0.296258, 0.955108, 0, 0, 0, 1, -1.28164, -1.79365, 0)
+size = Vector3(3, 2.79926, 1)
+
+[node name="stoneBackground5" type="CSGBox3D" parent="stoneBackground"]
+transform = Transform3D(0.0398359, 0.999206, 0, -0.999206, 0.0398359, 0, 0, 0, 1, -2.69081, -3.67493, 0)
+size = Vector3(3, 2.79926, 1)
