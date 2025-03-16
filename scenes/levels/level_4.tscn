@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://rk33yhmov7l3"]
 
 [ext_resource type="Script" uid="uid://cxtbitoqm04ks" path="res://scripts/landing_pad.gd" id="1_vmkp1"]
-[ext_resource type="PackedScene" uid="uid://bd0phqxxkb8h1" path="res://scenes/player.tscn" id="2_w6h2s"]
+[ext_resource type="PackedScene" uid="uid://bd0phqxxkb8h1" path="res://scenes/player/player.tscn" id="2_w6h2s"]
 [ext_resource type="PackedScene" uid="uid://dip433wpgngm7" path="res://scenes/obstacles/moving_obstacle.tscn" id="3_w6h2s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rd3vj"]
