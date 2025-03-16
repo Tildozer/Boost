@@ -8,10 +8,17 @@ extends RigidBody3D
 
 var is_transitioning: bool = false
 
+@onready var explosion_audio: AudioStreamPlayer = $explosionAudio
+@onready var success_audio: AudioStreamPlayer = $successAudio
+@onready var rocket_thrust: AudioStreamPlayer3D = $rocketAudio
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("boost"):
 		apply_central_force(basis.y * delta * thrust)
+		if !rocket_thrust.playing:
+			rocket_thrust.play()
+	else:
+		rocket_thrust.stop()
 	
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque(Vector3(0.0, 0.0, torque_thrust * delta))
@@ -28,17 +35,21 @@ func _on_body_entered(body: Node) -> void:
 			call_deferred("crash_sequence")
 
 func crash_sequence() -> void:
+	rocket_thrust.stop()
+	explosion_audio.play()
 	is_transitioning = true
 	set_process(false)
 	var tween = create_tween()
-	tween.tween_interval(1.0)
+	tween.tween_interval(2.5)
 	tween.tween_callback(get_tree().reload_current_scene)
 
 func complete_level(next_level_file: String) -> void:
+	rocket_thrust.stop()
+	success_audio.play()
 	is_transitioning = true
 	set_process(false)
 	var tween = create_tween()
-	tween.tween_interval(1.0)
+	tween.tween_interval(2.5)
 	tween.tween_callback(
 		get_tree().change_scene_to_file.bind(next_level_file)
 	)
